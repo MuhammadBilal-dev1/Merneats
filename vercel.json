@@ -1,15 +1,10 @@
 {
   "version": 2,
-  "name": "merneats",
   "builds": [
     {
       "src": "client/package.json",
       "use": "@vercel/static-build",
-      "config": {
-        "distDir": "dist",
-        "installCommand": "npm install",
-        "buildCommand": "npm run build"
-      }
+      "config": { "distDir": "dist" }
     },
     {
       "src": "server/src/index.ts",
@@ -22,8 +17,12 @@
       "dest": "server/src/index.ts"
     },
     {
+      "src": "/assets/(.*)",
+      "dest": "client/dist/assets/$1"
+    },
+    {
       "src": "/(.*)",
-      "dest": "/index.html"
+      "dest": "client/index.html"
     }
   ]
 }
