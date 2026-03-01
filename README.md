@@ -1,4 +1,4 @@
-🍔 MernEats | Enterprise‑Grade MERN + TypeScript Food Ordering Platform
+🍔 MernEats · Enterprise‑Grade MERN + TypeScript Food Ordering Platform
 
 Badges
 
@@ -18,31 +18,37 @@ High‑Level Architecture
 
 ```mermaid
 flowchart LR
-  subgraph Client [Client (React + Vite)]
+  subgraph "Client (React + Vite)"
     UI[UI / Pages]
     State[Zustand Stores]
     Fetch[Axios HTTP]
   end
 
-  subgraph Server [API (Express + TypeScript)]
+  subgraph "API (Express + TypeScript)"
+    REST[REST Endpoints]
     Auth[Auth & User]
     Restaurant[Restaurant & Menus]
     Orders[Orders & Stripe]
     Mail[Mailtrap Emails]
+    REST --> Auth
+    REST --> Restaurant
+    REST --> Orders
+    REST --> Mail
   end
 
   CDN[(Cloudinary)]
   DB[(MongoDB Atlas)]
   Stripe[(Stripe Checkout + Webhooks)]
 
-  UI --> State --> Fetch --> Server
+  UI --> State --> Fetch --> REST
+  Restaurant --> CDN
+  Orders <--> Stripe
   Auth --> DB
   Restaurant --> DB
   Orders --> DB
-  Restaurant --> CDN
-  Orders <--> Stripe
 ```
 
+Core Modules & Capabilities
 Core Modules & Capabilities
 
 1. Customer Experience
@@ -96,73 +102,26 @@ Restaurant-Website/
 └─ vercel.json            # Client deploy config (Vercel static build)
 ```
 
-Server Environment (server/.env)
+Experience Highlights
 
-- PORT=8000
-- MONGO_URL=your-mongodb-uri
-- FRONTEND_URL=http://localhost:5173
-- SECRET_KEY=your-session-secret
-- CLOUD_NAME=your-cloudinary-cloud
-- API_KEY=your-cloudinary-key
-- API_SECRET=your-cloudinary-secret
-- MAILTRAP_API_TOKEN=your-mailtrap-token
-- STRIPE*PUBLISHABLE_KEY=pk_test*…
-- STRIPE*SECRET_KEY=sk_test*…
-- WEBHOOK*ENDPOINT_SECRET=whsec*…
+- Performance‑first UI (React + Vite) with minimal bundle and instant navigation.
+- Robust search that understands restaurant names, cuisines, and even dish titles.
+- Seamless checkout with clear order summaries and post‑payment status.
+- Thoughtful admin flows for image management and status updates.
 
-Run Locally
+Screens Overview
 
-Server
+- Home & Search: Hero search + advanced results with cuisine chips.
+- Restaurant Profile: Banner, delivery time, and available menus.
+- Cart & Checkout: Quantity controls, accurate totals, Stripe redirect.
+- Orders: List view and per‑order detail with item‑wise subtotals and grand total.
 
-- cd server
-- npm install
-- npm run dev
+Feature Summary
 
-Client
-
-- cd client
-- npm install
-- npm run dev
-- App: http://localhost:5173
-
-Stripe Webhook (Dev)
-
-- stripe login
-- stripe listen --forward-to localhost:8000/api/v1/order/webhook
-- Copy the whsec\_… from the console to WEBHOOK_ENDPOINT_SECRET
-
-Key Endpoints (Server)
-
-- Auth
-  - POST /api/v1/user/signup
-  - POST /api/v1/user/login
-  - POST /api/v1/user/logout
-  - GET /api/v1/user/check-auth
-  - POST /api/v1/user/verify-email
-  - POST /api/v1/user/forgot-password
-  - POST /api/v1/user/reset-password/:token
-
-- Restaurant & Menu
-  - GET /api/v1/restaurant
-  - POST /api/v1/restaurant
-  - PUT /api/v1/restaurant
-  - GET /api/v1/restaurant/search/:searchText?searchQuery=&selectedCuisines=
-  - POST /api/v1/menu (multipart image)
-  - PUT /api/v1/menu/:id (multipart image)
-  - DELETE /api/v1/menu/:id (deletes Cloudinary image)
-
-- Orders & Payments
-  - GET /api/v1/order
-  - POST /api/v1/order/checkout/create-checkout-session
-  - POST /api/v1/order/webhook (Stripe → Server)
-
-Deployment (Vercel for Client)
-
-- vercel.json is already configured for a static client build and SPA fallback.
-- Update the API proxy route in vercel.json:
-  - "dest": "https://YOUR-BACKEND-DOMAIN/api/$1"
-- Build command: npm run build (client)
-- Dist dir: dist
+- Media: Cloudinary for optimized image delivery and clean deletion lifecycle.
+- Payments: Stripe Checkout + webhook confirmation persisted to orders.
+- State: Lightweight, predictable state with Zustand (user, cart, restaurant, orders).
+- Types: End‑to‑end TypeScript for maintainability and fewer runtime errors.
 
 Notes & Security
 
