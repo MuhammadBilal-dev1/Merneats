@@ -1,6 +1,8 @@
 🍔 MernEats · Enterprise‑Grade MERN + TypeScript Food Ordering Platform
 
-Badges
+🏷️ Badges
+
+---
 
 ![Vercel](https://img.shields.io/badge/Hosting-Vercel-black?logo=vercel)
 ![React](https://img.shields.io/badge/Frontend-React%20%2B%20Vite-61DAFB?logo=react&logoColor=white)
@@ -10,11 +12,15 @@ Badges
 ![Cloudinary](https://img.shields.io/badge/Images-Cloudinary-3448C5?logo=cloudinary&logoColor=white)
 ![Tailwind](https://img.shields.io/badge/UI-Tailwind-06B6D4?logo=tailwindcss&logoColor=white)
 
-Executive Summary
+📖 Executive Summary
+
+---
 
 MernEats is a full‑stack restaurant ordering platform that streamlines discovery, menu management, cart, and payments. Built with the MERN stack and TypeScript, it delivers a fast customer experience, a pragmatic admin workflow, and secure payments via Stripe Checkout with webhook order confirmation.
 
-High‑Level Architecture
+📊 High‑Level Architecture
+
+---
 
 ```mermaid
 flowchart LR
@@ -48,8 +54,9 @@ flowchart LR
   Orders --> DB
 ```
 
-Core Modules & Capabilities
-Core Modules & Capabilities
+✨ Core Modules & Capabilities
+
+---
 
 1. Customer Experience
 
@@ -68,7 +75,9 @@ Core Modules & Capabilities
 - Email Flows: Email verification and password reset via Mailtrap.
 - Auth: Token‑based auth guard for protected routes and admin routes.
 
-Technology Stack
+🧰 Technology Stack
+
+---
 
 | Layer    | Technology                                 | Purpose                                                    |
 | -------- | ------------------------------------------ | ---------------------------------------------------------- |
@@ -80,7 +89,9 @@ Technology Stack
 | Media    | Cloudinary                                 | Image upload/serve and deletion                            |
 | Email    | Mailtrap                                   | Dev‑friendly transactional emails                          |
 
-Project Structure
+📂 Project Structure
+
+---
 
 ```
 Restaurant-Website/
@@ -102,35 +113,45 @@ Restaurant-Website/
 └─ vercel.json            # Client deploy config (Vercel static build)
 ```
 
-Experience Highlights
+📌 Experience Highlights
+
+---
 
 - Performance‑first UI (React + Vite) with minimal bundle and instant navigation.
 - Robust search that understands restaurant names, cuisines, and even dish titles.
 - Seamless checkout with clear order summaries and post‑payment status.
 - Thoughtful admin flows for image management and status updates.
 
-Screens Overview
+🖥️ Screens Overview
+
+---
 
 - Home & Search: Hero search + advanced results with cuisine chips.
 - Restaurant Profile: Banner, delivery time, and available menus.
 - Cart & Checkout: Quantity controls, accurate totals, Stripe redirect.
 - Orders: List view and per‑order detail with item‑wise subtotals and grand total.
 
-Feature Summary
+🔧 Feature Summary
+
+---
 
 - Media: Cloudinary for optimized image delivery and clean deletion lifecycle.
 - Payments: Stripe Checkout + webhook confirmation persisted to orders.
 - State: Lightweight, predictable state with Zustand (user, cart, restaurant, orders).
 - Types: End‑to‑end TypeScript for maintainability and fewer runtime errors.
 
-Notes & Security
+🔒 Notes & Security
+
+---
 
 - Never commit secrets. Keep server/.env local or use Vercel/hosted env vars.
 - Stripe requires integer amounts (cents). We use Math.round for safety.
 - Webhook must use the exact whsec\_… printed by stripe listen.
 - Cloudinary deletes menu images when menus are removed.
 
-Troubleshooting
+🧪 Troubleshooting
+
+---
 
 - Stripe 500 on session create:
   - Check STRIPE_SECRET_KEY and allowed shipping countries.
@@ -140,6 +161,8 @@ Troubleshooting
 - Mail not delivered:
   - Mailtrap demo inbox only receives to test recipients.
 
-License
+📜 License
+
+---
 
 All rights reserved. For internal/project use.
