@@ -4,13 +4,15 @@ import { defineConfig } from "vite"
 
 export default defineConfig({
   plugins: [react()],
-  base: "/",
+  base: "/", // Ensure this is exactly "/"
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
   },
   build: {
-    outDir: "dist", // Ensure karein ke output folder ka naam dist hi ho
+    outDir: "dist",
+    assetsDir: "assets", // Vite will put CSS/JS here
+    emptyOutDir: true,
   }
 })
