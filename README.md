@@ -1,6 +1,6 @@
-🍔 MernEats · Enterprise‑Grade MERN + TypeScript Food Ordering Platform
+# 🍔 MernEats · Enterprise‑Grade MERN + TypeScript Food Ordering Platform
 
-🏷️ Badges
+## 🏷️ Badges
 
 ---
 
@@ -12,13 +12,13 @@
 ![Cloudinary](https://img.shields.io/badge/Images-Cloudinary-3448C5?logo=cloudinary&logoColor=white)
 ![Tailwind](https://img.shields.io/badge/UI-Tailwind-06B6D4?logo=tailwindcss&logoColor=white)
 
-📖 Executive Summary
+## 📖 Executive Summary
 
 ---
 
 MernEats is a full‑stack restaurant ordering platform that streamlines discovery, menu management, cart, and payments. Built with the MERN stack and TypeScript, it delivers a fast customer experience, a pragmatic admin workflow, and secure payments via Stripe Checkout with webhook order confirmation.
 
-📊 High‑Level Architecture
+## 📊 High‑Level Architecture
 
 ---
 
@@ -54,28 +54,28 @@ flowchart LR
   Orders --> DB
 ```
 
-✨ Core Modules & Capabilities
+## ✨ Core Modules & Capabilities
 
 ---
 
-1. Customer Experience
+### 1) Customer Experience
 
 - Smart Search: Fuzzy search across restaurant name, city, country, cuisines, and menu items.
 - Cart & Checkout: Persistent cart (Zustand) and Stripe Checkout session with webhooks.
 - Order History: Orders list page with per‑order detail view (item subtotals and totals).
 
-2. Admin Experience
+### 2) Admin Experience
 
 - Restaurant Profile: Create/update restaurant and banner image (Cloudinary).
 - Menu Management: Add/Edit/Delete menus; Cloudinary image deletion on remove.
 - Order Control: Update order status (pending → confirmed → preparing → outfordelivery → delivered).
 
-3. Communication & Security
+### 3) Communication & Security
 
 - Email Flows: Email verification and password reset via Mailtrap.
 - Auth: Token‑based auth guard for protected routes and admin routes.
 
-🧰 Technology Stack
+## 🧰 Technology Stack
 
 ---
 
@@ -89,7 +89,7 @@ flowchart LR
 | Media    | Cloudinary                                 | Image upload/serve and deletion                            |
 | Email    | Mailtrap                                   | Dev‑friendly transactional emails                          |
 
-📂 Project Structure
+## 📂 Project Structure
 
 ---
 
@@ -113,7 +113,7 @@ Restaurant-Website/
 └─ vercel.json            # Client deploy config (Vercel static build)
 ```
 
-📌 Experience Highlights
+## 📌 Experience Highlights
 
 ---
 
@@ -122,7 +122,7 @@ Restaurant-Website/
 - Seamless checkout with clear order summaries and post‑payment status.
 - Thoughtful admin flows for image management and status updates.
 
-🖥️ Screens Overview
+## 🖥️ Screens Overview
 
 ---
 
@@ -131,7 +131,7 @@ Restaurant-Website/
 - Cart & Checkout: Quantity controls, accurate totals, Stripe redirect.
 - Orders: List view and per‑order detail with item‑wise subtotals and grand total.
 
-🔧 Feature Summary
+## 🔧 Feature Summary
 
 ---
 
@@ -140,7 +140,7 @@ Restaurant-Website/
 - State: Lightweight, predictable state with Zustand (user, cart, restaurant, orders).
 - Types: End‑to‑end TypeScript for maintainability and fewer runtime errors.
 
-🔒 Notes & Security
+## 🔒 Notes & Security
 
 ---
 
@@ -149,7 +149,7 @@ Restaurant-Website/
 - Webhook must use the exact whsec\_… printed by stripe listen.
 - Cloudinary deletes menu images when menus are removed.
 
-🧪 Troubleshooting
+## 🧪 Troubleshooting
 
 ---
 
@@ -161,7 +161,7 @@ Restaurant-Website/
 - Mail not delivered:
   - Mailtrap demo inbox only receives to test recipients.
 
-📜 License
+## 📜 License
 
 ---
 
