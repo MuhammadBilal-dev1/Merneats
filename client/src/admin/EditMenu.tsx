@@ -26,7 +26,7 @@ const EditMenu = ({
   editOpen,
   setEditOpen,
 }: {
-  selectedMenu: MenuFormSchema;
+  selectedMenu: MenuFormSchema & { _id: string };
   editOpen: boolean;
   setEditOpen: Dispatch<SetStateAction<boolean>>;
 }) => {
@@ -36,7 +36,7 @@ const EditMenu = ({
     price: 0,
     image: undefined,
   });
-  const {loading, editMenu} = useMenustore()
+  const { loading, editMenu } = useMenustore();
   const [error, setError] = useState<Partial<MenuFormSchema>>({});
 
   const changeEventHandler = (e: ChangeEvent<HTMLInputElement>) => {
@@ -58,7 +58,7 @@ const EditMenu = ({
     }
   };
 
-  const submitHandler = async(e: FormEvent<HTMLFormElement>) => {
+  const submitHandler = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError({});
     const result = menuSchema.safeParse(input);
@@ -71,18 +71,16 @@ const EditMenu = ({
     // api implementation
     try {
       const formData = new FormData();
-      formData.append("name", input.name)
-      formData.append("description", input.description)
-      formData.append("price", input.price.toString())
+      formData.append("name", input.name);
+      formData.append("description", input.description);
+      formData.append("price", input.price.toString());
       if (input.image) {
-        formData.append("image", input.image)
+        formData.append("image", input.image);
       }
-      await editMenu(selectedMenu._id, formData)
+      await editMenu(selectedMenu._id, formData);
       console.log(selectedMenu);
-      
     } catch (error) {
       console.log(error);
-      
     }
   };
 

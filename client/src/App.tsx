@@ -9,7 +9,6 @@ import SignUp from "./auth/SignUp";
 import ForgotPassword from "./auth/ForgotPassword";
 import ResetPassword from "./auth/ResetPassword";
 import VerifyEmail from "./auth/VerifyEmail";
-import Navbar from "./components/Navbar";
 import MainLayout from "./layout/MainLayout";
 import HeroSection from "./components/HeroSection";
 import Profile from "./pages/Profile";
@@ -159,7 +158,7 @@ const appRouter = createBrowserRouter([
 ]);
 
 function App() {
-  const { user, checkingAuthentication, isCheckingAuth, isAuthenticated } =
+  const { checkingAuthentication, isCheckingAuth } =
     useUserStore();
   const initializeTheme = useThemeStore((state: any) => state.initializeTheme);
   useEffect(() => {

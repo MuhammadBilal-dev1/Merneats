@@ -19,7 +19,6 @@ import {
   Menu,
   Moon,
   PackageCheck,
-  PackageCheckIcon,
   ShoppingCart,
   SquareMenu,
   Sun,

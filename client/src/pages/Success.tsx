@@ -2,8 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { useOrderStore } from "@/store/useOrderStore";
 import { userCartStore } from "@/store/useCartStore";
-import { Orders } from "@/types/orderType";
-import { DollarSign, DollarSignIcon } from "lucide-react";
+import { DollarSignIcon } from "lucide-react";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 

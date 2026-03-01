@@ -1,4 +1,3 @@
-import Image from "@/assets/hero_pizza.png";
 import AvaliablePages from "@/components/AvaliableMenu";
 import { Badge } from "@/components/ui/badge";
 import { useRestaurantStore } from "@/store/useRestaurantStore";
