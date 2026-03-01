@@ -1,0 +1,8 @@
+{
+  "name": "restaurant-website-monorepo",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "cd client && npm install && npm run build",
+    "install-all": "npm install --prefix client && npm install --prefix server"
+  }
+}
